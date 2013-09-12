@@ -39,3 +39,19 @@ DOM element changed
    Element is no longer attached to the DOM (Selenium::WebDriver::Error::StaleElementReferenceError)
 ```
 Avoid using chained finders/selectors like `find('body').find('ul').find('li')`. Use one selector instead `find('body ul li')`. Also try not to store dom elements in a variable and then access them later, also avoid reloading them with `element.reload`, but find those elements again in the dom.
+
+DOM elements not yet ready
+----------------------
+```
+  first(".button").click
+  undefined method `click' for nil:NilClass (NoMethodError)
+```
+ensure that the element is present before perform an action on it
+```
+  page.should have_selector(".button")
+  first(".button").click
+```
+in alternative, when the element should be unique, the find method is wating for it
+```
+  find(".button").click
+```
