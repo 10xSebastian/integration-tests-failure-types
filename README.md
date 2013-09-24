@@ -55,3 +55,13 @@ in alternative, when the element should be unique, the find method is wating for
 ```
   find(".button").click
 ```
+
+DOM elements not yet ready (not reproducible locally)
+----------------------
+```
+  Element not found in the cache - perhaps the page has changed since it was looked up (Selenium::WebDriver::Error::StaleElementReferenceError)
+```
+Obviously you local machine is faster then your CI-Server. If it happens to you that you cannot reproduce such kind of error locally try to decrease the global default waiting time to something under 1 second:
+```
+  Capybara.default_wait_time = 0.5
+```  
