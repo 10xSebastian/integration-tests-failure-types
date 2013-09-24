@@ -9,7 +9,7 @@ Existing but not visible elements
 ```
   Element is not currently visible and so may not be interacted with (Selenium::WebDriver::Error::ElementNotVisibleError)
 ```
-Imagin you have a dropdown, and you perform `find("#dropdown).click; find("#dropdown-item").click` then it could happen that when capybara tries to click on the item it's not yet visible. To solve this you should ensure that capybara interacts only with the visible dropdown-item not with the still hidden one `find("#dropdown-item", :visible => true).click`.
+Imagin you have a dropdown, and you perform `find("#dropdown).click; find("#dropdown-item").click` then it could happen that when capybara tries to click on the item it's not yet visible. To solve this you should ensure that capybara interacts only with the visible dropdown-item not with the still hidden one `find("#dropdown-item", :visible => true).click`. Capybara is waiting for that element to become visible, so you should not forget to hover/click the trigger.
 
 ---------------------------------------
 
