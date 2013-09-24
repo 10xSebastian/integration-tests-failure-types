@@ -48,12 +48,15 @@ DOM elements not yet ready
 ```
 ensure that the element is present before perform an action on it
 ```
-  page.should have_selector(".button")
+  has_selector? ".button"
   first(".button").click
 ```
 in alternative, when the element should be unique, the find method is wating for it
 ```
   find(".button").click
+  or 
+  find(".button", :match => :first).click
+  etc.
 ```
 
 DOM elements not yet ready (not reproducible locally)
