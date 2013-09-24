@@ -48,14 +48,14 @@ DOM elements not yet ready
 ```
 ensure that the element is present before perform an action on it
 ```
-  has_selector? ".button"
+  has_selector? ".button" # synchronized / waiting
   first(".button").click
 ```
 in alternative, when the element should be unique, the find method is wating for it
 ```
-  find(".button").click
+  find(".button").click # synchronized / waiting
   or 
-  find(".button", :match => :first).click
+  find(".button", :match => :first).click # synchronized / waiting
   etc.
 ```
 
